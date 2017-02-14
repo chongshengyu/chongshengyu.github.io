@@ -3,13 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Chongsheng Yu</title>
+  <title>Ubuntu Server 16.04配置及相关环境搭建 | Chongsheng Yu</title>
   <meta name="author" content="John Doe">
+  
+  <meta name="description" content="系统配置设置root密码1sudo passwd
+之后输入当前用户密码，再设置root用户密码即可。
+挂载U盘在mnt目录下新建usb目录插入U盘后fdisk -l查看磁盘，找到u盘对应的设备12mount -t vfat /dev/sdb /mnt/usbumount /mnt/usb
+即可挂载和">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="Ubuntu Server 16.04配置及相关环境搭建"/>
   <meta property="og:site_name" content="Chongsheng Yu"/>
 
   
@@ -84,50 +89,32 @@
 
   <div class="container">
   	<div class="content">
-    	 <div class="page-header page-header-inverse ">
-  <h1 class="title title-inverse ">Chongsheng Yu</h1>
-</div>
+    	 
 
-<div class="row page">
 
 	
+		<div class="page-header page-header-inverse ">		
+			<h1 class="title title-inverse "> Ubuntu Server 16.04配置及相关环境搭建</h1>
+		</div>		
+	
+
+
+
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
 	<div class="col-md-9">
 	
 
-		<div class="slogan">
-      <i class="fa fa-heart"></i>
-      I Love sunshine.
-</div>    
-		<div id="top_search"></div>
-		<div class="mypage">
-		
-		<!-- title and entry -->
-        <!-- render top articles firstly -->
-        
-		
-            
-		
-            
-		
-        
-        <!-- render other articles -->
-        
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2017-02-14 </div>
-			<div class="article-title"><a href="/2017/02/14/Ubuntu-Server-16-04配置及相关环境搭建/" >Ubuntu Server 16.04配置及相关环境搭建</a></div>						
-		</h3>
-	
+	<!-- content -->
+	<div class="mypage">		
+	  		
 
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		<h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="设置root密码"><a href="#设置root密码" class="headerlink" title="设置root密码"></a>设置root密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo passwd</div></pre></td></tr></table></figure>
+	  <h1 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h1><h2 id="设置root密码"><a href="#设置root密码" class="headerlink" title="设置root密码"></a>设置root密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo passwd</div></pre></td></tr></table></figure>
 <p>之后输入当前用户密码，再设置root用户密码即可。</p>
 <h2 id="挂载U盘"><a href="#挂载U盘" class="headerlink" title="挂载U盘"></a>挂载U盘</h2><p>在mnt目录下新建usb目录<br>插入U盘后<code>fdisk -l</code>查看磁盘，找到u盘对应的设备<br><img src="http://7xr4lz.com1.z0.glb.clouddn.com/17-2-14/99041120-file_1487039136432_17d60.png" alt="找到U盘对应的设备"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mount -t vfat /dev/sdb /mnt/usb</div><div class="line">umount /mnt/usb</div></pre></td></tr></table></figure></p>
 <p>即可挂载和卸载<br>若挂载报错，可先使用<code>mkfs.vfat -F 32 /dev/sdb</code>命令，将U盘格式化为fat32格式</p>
@@ -153,127 +140,104 @@
 <h4 id="编辑slaves文件"><a href="#编辑slaves文件" class="headerlink" title="编辑slaves文件"></a>编辑slaves文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cp slaves.template slaves</div><div class="line">vi slaves</div></pre></td></tr></table></figure>
 <p>添加所有主机的hostname(注，需在hosts文件中添加对方的hostname和ip的关系)<br> 把master上Spark相关配置复制到集群从节点中，注意，三台机器spark所在目录必须一致，因为master会登陆到worker上执行命令，master认为worker的spark路径与自己一样</p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /$SPARK_HOME/sbin</div><div class="line">./start-all.sh</div></pre></td></tr></table></figure>
-
-	
+	  
 	</div>
-</div>
 
-           
-		
-           
-			  
-	
-	<!-- display as entry -->	
-		<h3 class="title">
-			<div class="date"> 2017-02-02 </div>
-			<div class="article-title"><a href="/2017/02/02/hello-world/" >Hello World</a></div>						
-		</h3>
-	
-
-
-			  <div class="entry">
-  <div class="row">
-	
-	
-		<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-	
-	</div>
-</div>
-
-           
-		
-
-		</div>
-
-		<!-- pagination -->
-		<div>
-  		<center>
-		<div class="pagination">
+	<div>
+  	<center>
+	<div class="pagination">
 <ul class="pagination">
 	 
+		
+          <li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+        
+
+        <li><a href="/archives"><i class="fa fa-archive"></i>Archive</a></li>
+
+		
+		   <li class="next"><a href="/2017/02/02/hello-world/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>         
+        
+	
 </ul>
 </div>
 
-  		</center>
-		</div>
-
-		
-		
-	</div> <!-- col-md-9 -->
-
-	
-		<div class="col-md-3">
-	<div id="sidebar">
-	
-			
-  <div id="site_search">
-   <div class="form-group">
-    <input type="text" id="local-search-input" name="q" results="0" placeholder="Search" class="st-search-input st-default-search-input form-control"/>
-   </div>  
-  <div id="local-search-result"></div>
-  </div>
-
-
-		
-			
-		
-			
-	<div class="widget">
-		<h4>Tag Cloud</h4>
-		<ul class="tag_box inline list-unstyled">		
-		
-			<li><a href="/tags/环境搭建/">环境搭建<span>1</span></a></li>
-		
-		 
-		</ul>
+    </center>
 	</div>
 
-
-		
-			
-<div class="widget">
-  <h4>Recent Posts</h4>
-  <ul class="entry list-unstyled">
+    <!-- share -->
     
-      <li>
-        <a href="/2017/02/14/Ubuntu-Server-16-04配置及相关环境搭建/" ><i class="fa fa-file-o"></i>Ubuntu Server 16.04配置及相关环境搭建</a>
-      </li>
+        
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+        <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+        <a href="#" class="bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+        <a href="#" class="bds_evernotecn" data-cmd="evernotecn" title="分享到印象笔记"></a>
+        <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+    </div>
+    <script>
+        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};
+        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+
+
+        
+
     
-      <li>
-        <a href="/2017/02/02/hello-world/" ><i class="fa fa-file-o"></i>Hello World</a>
-      </li>
+	
+	<!-- comment -->
+	
+<section id="comment">
+  <h2 class="title">Comments</h2>
+
+  
+</section>
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2017-02-14 
+	</div>
+	
+
+	<!-- categories -->
     
-  </ul>
-</div>
 
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/环境搭建/">环境搭建<span>1</span></a></li>
+    </ul>
+	</div>
 		
-			
-<div class="widget">
-	<h4>Links</h4>
-	<ul class="blogroll list-unstyled">
-	
-		<li><i class="fa fa-github"></i><a href="http://www.github.com/chongshengyu" title="My Github account." target="_blank"]);">My Github</a></li>
-	
-	</ul>
-</div>
 
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
 
+	</div>
 		
-	</div> <!-- sidebar -->
-</div> <!-- col-md-3 -->
 
-	
-	
-</div> <!-- row-fluid -->
+</div><!-- row -->
+
 
 
 	</div>
